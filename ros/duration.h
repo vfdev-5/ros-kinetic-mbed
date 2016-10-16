@@ -54,7 +54,7 @@ namespace ros {
       }
 
       double toSec() const { return (double)sec + 1e-9*(double)nsec; };
-      void fromSec(double t) { sec = (uint32_t) floor(t); nsec = (uint32_t) round((t-sec) * 1e9); };
+      void fromSec(double t) { sec = (uint32_t) floor(t); nsec = (uint32_t) ((t-sec) * 1e9 + 0.5); };
 
       Duration& operator+=(const Duration &rhs);
       Duration& operator-=(const Duration &rhs);

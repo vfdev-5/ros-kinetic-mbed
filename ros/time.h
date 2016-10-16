@@ -55,7 +55,7 @@ namespace ros
       }
 
       double toSec() const { return (double)sec + 1e-9*(double)nsec; };
-      void fromSec(double t) { sec = (uint32_t) floor(t); nsec = (uint32_t) round((t-sec) * 1e9); };
+      void fromSec(double t) { sec = (uint32_t) floor(t); nsec = (uint32_t) ((t-sec) * 1e9 + 0.5); };
 
       uint32_t toNsec() { return (uint32_t)sec*1000000000ull + (uint32_t)nsec; };
       Time& fromNSec(int32_t t);
